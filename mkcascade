@@ -71,11 +71,11 @@ if [ ! -d $STAGE3_DIR/bin ]; then
   rm -r /tmp/ebuild
   chown -R portage:portage /var/db/repos/cascade
 
-  # Install our patched version of xattr, so it doesn't attempt
-  # to follow symlinks and break uutils coreutils.
-  emerge --update sys-apps/install-xattr::cascade
-
-  emerge --update sys-apps/coreutils::cascade
+  emerge --update shell-apps/oils-for-unix::cascade
+  rm /bin/sh
+  ln -s /usr/bin/oils-for-unix /bin/sh
+  rm /bin/bash
+  ln -s /usr/bin/oils-for-unix /bin/bash
   " > $STAGE3_DIR/setup
   chmod +x $STAGE3_DIR/setup
   chroot $STAGE3_DIR /setup

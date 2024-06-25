@@ -17,3 +17,5 @@ For now, oily-gentoo defines a minimal and automated path to replace /bin/bash a
 # Remove mountpoints when finished
 ./build remove_mounts
 ```
+
+Idea and most code stolen from https://github.com/JoshMcguigan/cascade

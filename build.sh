@@ -6,7 +6,6 @@ chroot() {
   sudo mount -t proc /proc $STAGE3_DIR/proc || echo already mounted
   sudo mount --rbind /sys $STAGE3_DIR/sys || echo already mounted
   sudo mount --make-rslave $STAGE3_DIR/sys || echo already mounted
-  sudo mount --bind /run $STAGE3_DIR/run || echo already mounted
   sudo chroot /var/stage3 /bin/bash
 }
 

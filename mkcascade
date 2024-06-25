@@ -48,7 +48,9 @@ if [ ! -d $STAGE3_DIR/bin ]; then
   echo "
   #!/bin/sh
 
-  set -e
+  set -ex
+  # Make it work on nix
+  export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
   # Really we should uncomment this rather than
   # add a new line..
@@ -71,7 +73,7 @@ if [ ! -d $STAGE3_DIR/bin ]; then
   rm -r /tmp/ebuild
   chown -R portage:portage /var/db/repos/cascade
 
-  emerge --update shell-apps/oils-for-unix::cascade
+  emerge --update app-shells/oils-for-unix::cascade
   rm /bin/sh
   ln -s /usr/bin/oils-for-unix /bin/sh
   rm /bin/bash
